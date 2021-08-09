@@ -3,30 +3,39 @@ package geekbrains_homeworks.Homework1;
 import java.util.Scanner;
 
 public class Homework1 {
-//
-
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int a = (int) (Math.random() * (20 + 1) - 10);
+        float a = (float) Math.random() * 10;
+        float b = (float) Math.random() * 10;
+        float c = (float) Math.random() * 10;
+        float d = (float) Math.random() * 10;
+        int f = (int) (Math.random() * (20 + 1) - 10);
         String name = "";
         System.out.println("Введите номер задания, которое будем проверять (от 1 до 8)");
+
         int i = scanner.nextInt();
         if (i == 1) {
             System.out.println("Если этот текст виден, проект создан и работает");
         } else if (i == 2) {
             zadanie2();
         } else if (i == 3) {
-            zadanie3();
+            zadanie3 (a, b, c, d);
         } else if (i == 4) {
-            zadanie4 ();
+            System.out.println("Проверим входит ли сумма 2х чисел в диапазон от 10 до 20:");
+            System.out.println("Введите первое число");
+            int t = scanner.nextInt(); //принимаем данные с консоли
+            System.out.println("Введите второе число");
+            int j = scanner.nextInt();
+            zadanie4 (t, j);
         } else if (i == 5) {
-            zadanie5(a);
+            zadanie5(f);
         } else if (i == 6) {
-            zadanie6(a);
+            zadanie6(f);
         } else if (i == 7){
             zadanie7(name);
         } else zadanie8();
+
     }
 
     public static void zadanie2 () {
@@ -52,30 +61,19 @@ public class Homework1 {
 
     }
 
-    public static void zadanie3 (){
+    public static void zadanie3 (float a, float b, float c, float d){
         //Создание метода, вычисляющего выражение a * (b + (c / d))
-        float a, b, c, d, result;
-//"случайно" создаем переменные
-        a = (float) Math.random() * 10;
-        b = (float) Math.random() * 10;
-        c = (float) Math.random() * 10;
-        d = (float) Math.random() * 10;
-        result = a * (b + (c / d));
+        float result = a * (b + (c / d));
         System.out.println("Число a: " + a + "; Число b: " + b
                 + "; Число c: " + c + "; Число d: " + d);
         System.out.println("Результат выражения  a * (b + (c / d)) равен: " + result);
     }
 
-    public static void zadanie4 () {
+    public static void zadanie4 (int t, int j) {
 /*
 Написать метод, принимающий на вход два целых числа и проверяющий, что их сумма лежит в пределах от 10 до 20 (включительно), если да – вернуть true, в противном случае – false.
  */
-        System.out.println("Проверим входит ли сумма 2х чисел в диапазон от 10 до 20:");
-        System.out.println("Введите первое число");
-        int a = scanner.nextInt(); //принимаем данные с консоли
-        System.out.println("Введите второе число");
-        int b = scanner.nextInt();
-        int sum = a + b;
+        int sum = t + j;
         if (sum >= 10 && sum <= 20) {
             System.out.println("True");
         } else {
@@ -83,24 +81,24 @@ public class Homework1 {
         }
     }
 
-    public static void zadanie5 (int a) {
+    public static void zadanie5 (int f) {
 /*
 Написать метод, которому в качестве параметра передается целое число, метод должен напечатать в консоль, положительное ли число передали или отрицательное.
 Замечание: ноль считаем положительным числом.
  */
-        if (a < 0){
-            System.out.println("Число отрицательное: " + a);
-        } else if (a >= 0) {
-            System.out.println("Число положительное: " + a);
+        if (f < 0){
+            System.out.println("Число отрицательное: " + f);
+        } else if (f >= 0) {
+            System.out.println("Число положительное: " + f);
         }
     }
 
-    public static void zadanie6 (int a) {
+    public static void zadanie6 (int f) {
 /*
 Написать метод, которому в качестве параметра передается целое число. Метод должен вернуть true, если число отрицательное, и вернуть false если положительное.
  */
         boolean yes = true;
-        if (a > 0) yes = true;
+        if (f > 0) yes = true;
         else yes = false;
         System.out.println(yes);
     }
@@ -130,6 +128,4 @@ public class Homework1 {
             System.out.println("Год не високосный");
         }
     }
-
-//
 }
